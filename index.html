@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="side-bar">
+        <h1>IdeaBox</h1>
+        <section class="starred-ideas">
+            <button type="button">Show Starred Ideas</button>
+        </section>
+    </main>
+    <form class="idea-form">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title-input">
+        <label for="body">Body</label>
+        <input type="text" name="body" id="body-input">
+        <button type="button">Save</button>
+        <div class="search-ideas">
+            <button type="button"></button>
+            <input type="text" placeholder="Search ideas" id="search-input">
+        </div>
+    </form>
+    <section class="idea-card-grid">
+        <section class="idea-card">
+            <section class="card-nav">
+                <input type="image" name="favorite" id="favorite-button">
+                <input type="image" name="delete" id="delete-button">
+            </section>
+            <section class="card-body">
+                <h2>Idea title</h2>
+                <p>Idea body</p>
+            </section>
+            <section class="comment-bar">
+                <input type="image" name="comment" id="comment-button" src="/assets/comment.svg">
+                <label for="comment">Comment</label>
+            </section>
+        </section>
+    </section>
+</body>
+</html>
