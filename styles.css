@@ -1,0 +1,38 @@
+* {
+    font-family: 'Open sans', sans-serif;
+    font-weight: bold;
+}
+.idea-body {
+    font-weight: 300;
+}
+#search-input {
+    font-weight: 300;
+}
+body {
+    display: flex;
+    flex-direction: row;
+}
+main {
+    width: 20%;
+    height: 100vh;
+    border: 5px solid black;
+}
+.form-and-grid {
+    width: 80%;
+    height: 100vh;
+    border: 5px solid black;
+}
+form {
+    width: 80%;
+    height: 50vh;
+    border: 5px solid black;
+}
+.idea-card-grid {
+    width: 80%;
+    height: 50vh;
+    border: 5px solid black;
+}
+.idea-card {
+    border: 5px solid black;
+    
+}
