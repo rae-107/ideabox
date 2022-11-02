@@ -23,6 +23,7 @@ var saveButton = document.querySelector('#save-button')
 
 // Cards
 // inputs
+var ideaCardGrid = document.querySelector('.idea-card-grid')
 var ideaCard = document.querySelector('.idea-card')
 var ideaTitle = document.querySelector('.idea-title')
 var ideaBody = document.querySelector('.idea-body')
@@ -60,6 +61,23 @@ function saveIdea(title, body) {
 }
 
 function displayIdeas() {
-    ideaTitle.innerText = newIdea.title
-    ideaBody.innerText = newIdea.body
+    ideaCardGrid.innerHTML = ''
+    for(var i = 0; i < ideas.length; i++) {
+        ideaCardGrid.innerHTML += `<section class="idea-card">
+        <section class="card-nav">
+            <button type="button" name="star" id="star-button">
+            <button type="button" name="delete" id="delete-button">
+        </section>
+        <section class="card-body">
+            <p class="idea-title">${ideas[i].title}</p>
+            <p class="idea-body">${ideas[i].body}</p>
+        </section>
+        <section class="comment-bar">
+            <button type="button" name="comment" id="comment-button">
+            </button>
+            <label for="comment">Comment</label>
+        </section>
+    </section>`
+
+    }
 }
