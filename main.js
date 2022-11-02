@@ -37,7 +37,6 @@ showStarredIdeaButton.addEventListener('click', function() {
 })
 saveButton.addEventListener('click', function() {
 saveIdea()
-displayIdeas()
 })
 searchButton.addEventListener('click', function() {
 
@@ -56,7 +55,9 @@ function saveIdea(title, body) {
     newIdea.title = titleInput.value
     newIdea.body = bodyInput.value
     if (titleInput.value !== '' && bodyInput.value !== '') {
-        ideas.push(newIdea) 
+        ideas.push(newIdea)
+        displayIdeas()
+        clearForm()
     } 
 }
 
@@ -80,4 +81,9 @@ function displayIdeas() {
     </section>`
 
     }
+}
+
+function clearForm() {
+    titleInput.value = ''
+    bodyInput.value = ''
 }
