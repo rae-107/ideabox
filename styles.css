@@ -14,6 +14,7 @@ main {
     height: 100vh;
     background-color: #1f1f3d;
     color: #e9e9f3;
+    /* padding: 10px; */
 }
 button {
     color: #e9e9f3;
@@ -92,7 +93,7 @@ form {
 #search-input {
     width: 100%;
     font-weight: 300;
-    border: 1.5px #5356a4;
+    border: 2px #5356a4;
     border-radius: 3px;
 }
 
@@ -100,18 +101,78 @@ form {
 .idea-card-grid {
     height: 60vh;
     background-color: #eaeaf4;
+    padding: 10px;
     display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+
 }
+.idea-card {
+    width: 185px;
+    height: 250px;
+    border: 2px solid #1f1f3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-nav {
+    background-color:#1f1f3d;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+#favorite-button {
+    background-image: url('./assets/star.svg');
+    background-color: #1f1f3d;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 40px;
+    padding: 15px;
+    border: none;
+}
+
+#delete-button {
+    background-image: url('./assets/delete.svg');
+    background-color: #1f1f3d;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 40px;
+    padding: 15px;
+    border: none;
+}
+
+.card-body {
+    margin: 0px;
+    padding: 0px 10px;
+    font-size: 17px;
+}
+
 .idea-body {
     font-weight: 300;
 }
 
+.comment-bar {
+    color: #e9e9f3;
+    background-color: #5356a4;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    /* adjust sizing */
+}
+
 #comment-button {
-    border: 5px solid black;
-    width: 3%;
-    height: 3vh;
+    background-image: url('./assets/comment.svg');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 40px;
+    padding: 15px;
+    border: none;
 }
-.idea-card {
-    border: 2px solid black;
-    width: 175px;
-}
+
+
+
