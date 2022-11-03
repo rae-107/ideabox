@@ -14,12 +14,14 @@ var showStarredIdeaButton = document.querySelector('#show-starred-button')
 
 // Form
 // inputs
+var formInput = document.querySelector('.idea-form')
 var titleInput = document.querySelector('#title-input')
 var bodyInput = document.querySelector('#body-input')
 var searchInputValue = document.querySelector('#search-input')
 // buttons
 var searchButton = document.querySelector('#search-button')
-var saveButton = document.querySelector('#save-button')
+var saveButton = document.querySelector('.save-button')
+
 
 // Cards
 // inputs
@@ -31,24 +33,37 @@ var ideaBody = document.querySelector('.idea-body')
 var starButton = document.querySelector('#star-button')
 var deleteButton = document.querySelector('#delete-button')
 
+
 // Add Event Listeners
 showStarredIdeaButton.addEventListener('click', function() {
-
 })
+
 saveButton.addEventListener('click', function() {
-saveIdea()
+    saveIdea()
 })
+
+formInput.addEventListener('input', function() {
+    toggleSaveButton()
+})
+
 searchButton.addEventListener('click', function() {
-
 })
+
 starButton.addEventListener('click', function() {
-
 })
-deleteButton.addEventListener('click', function() {
 
+deleteButton.addEventListener('click', function() {
 })
 
 // Functions and Event Handlers
+
+function toggleSaveButton() {
+    if (titleInput.value !== '' && bodyInput.value !== '') {
+        saveButton.classList.remove('disabled')
+    } else {
+        saveButton.classList.add('disabled')
+    }
+}
 
 function saveIdea(title, body) {
     newIdea = new Idea(title, body)
@@ -59,6 +74,7 @@ function saveIdea(title, body) {
         displayIdeas()
         clearForm()
     } 
+
 }
 
 function displayIdeas() {
@@ -86,4 +102,5 @@ function displayIdeas() {
 function clearForm() {
     titleInput.value = ''
     bodyInput.value = ''
+    saveButton.classList.add('disabled')
 }
