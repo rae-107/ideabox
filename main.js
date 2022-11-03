@@ -80,21 +80,18 @@ function saveIdea(title, body) {
 function displayIdeas() {
     ideaCardGrid.innerHTML = ''
     for(var i = 0; i < ideas.length; i++) {
-        ideaCardGrid.innerHTML += `<section class="idea-card">
-        <section class="card-nav">
-            <button type="button" name="star" id="star-button">
-            <button type="button" name="delete" id="delete-button">
-        </section>
+        ideaCardGrid.innerHTML += `<article class="idea-card">
+        <div class="card-nav">
+            <button type="button" name="star" class="star-button" id="star-button">
+            <button type="button" name="delete" class="delete-button" id="delete-button">
+            </div>
         <section class="card-body">
             <p class="idea-title">${ideas[i].title}</p>
             <p class="idea-body">${ideas[i].body}</p>
         </section>
-        <section class="comment-bar">
-            <button type="button" name="comment" id="comment-button">
-            </button>
-            <label for="comment">Comment</label>
+        <section class="bottom-bar">
         </section>
-    </section>`
+    </article>`
 
     }
 }
