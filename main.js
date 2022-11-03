@@ -14,13 +14,13 @@ var showStarredIdeaButton = document.querySelector('#show-starred-button')
 
 // Form
 // inputs
-var formInput = document.querySelector('.idea-form')
+var formInput = document.querySelector('#idea-form')
 var titleInput = document.querySelector('#title-input')
 var bodyInput = document.querySelector('#body-input')
 var searchInputValue = document.querySelector('#search-input')
 // buttons
 var searchButton = document.querySelector('#search-button')
-var saveButton = document.querySelector('.save-button')
+var saveButton = document.querySelector('#save-button')
 
 
 // Cards
