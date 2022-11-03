@@ -4,7 +4,7 @@
 
 // Variables
 var ideas = []
-
+var newIdea;
 // JQuery Selectors
 
 // Main
@@ -14,37 +14,90 @@ var showStarredIdeaButton = document.querySelector('#show-starred-button')
 
 // Form
 // inputs
-var titleInputValue = document.querySelector('#title-input').value
-var bodyInputValue = document.querySelector('#body-input').value
+var formInput = document.querySelector('#idea-form')
+var titleInput = document.querySelector('#title-input')
+var bodyInput = document.querySelector('#body-input')
 var searchInputValue = document.querySelector('#search-input')
 // buttons
 var searchButton = document.querySelector('#search-button')
 var saveButton = document.querySelector('#save-button')
 
+
 // Cards
 // inputs
+var ideaCardGrid = document.querySelector('.idea-card-grid')
+var ideaCard = document.querySelector('.idea-card')
 var ideaTitle = document.querySelector('.idea-title')
 var ideaBody = document.querySelector('.idea-body')
 // buttons
 var starButton = document.querySelector('#star-button')
 var deleteButton = document.querySelector('#delete-button')
 
+
 // Add Event Listeners
 showStarredIdeaButton.addEventListener('click', function() {
-
 })
+
 saveButton.addEventListener('click', function() {
-
+    saveIdea()
 })
+
+formInput.addEventListener('input', function() {
+    toggleSaveButton()
+})
+
 searchButton.addEventListener('click', function() {
-
 })
+
 starButton.addEventListener('click', function() {
-
 })
-deleteButton.addEventListener('click', function() {
 
+deleteButton.addEventListener('click', function() {
 })
 
 // Functions and Event Handlers
 
+function toggleSaveButton() {
+    if (titleInput.value !== '' && bodyInput.value !== '') {
+        saveButton.classList.remove('disabled')
+    } else {
+        saveButton.classList.add('disabled')
+    }
+}
+
+function saveIdea(title, body) {
+    newIdea = new Idea(title, body)
+    newIdea.title = titleInput.value
+    newIdea.body = bodyInput.value
+    if (titleInput.value !== '' && bodyInput.value !== '') {
+        ideas.push(newIdea)
+        displayIdeas()
+        clearForm()
+    } 
+
+}
+
+function displayIdeas() {
+    ideaCardGrid.innerHTML = ''
+    for(var i = 0; i < ideas.length; i++) {
+        ideaCardGrid.innerHTML += `<article class="idea-card">
+        <div class="card-nav">
+            <button type="button" name="star" class="star-button" id="star-button">
+            <button type="button" name="delete" class="delete-button" id="delete-button">
+            </div>
+        <section class="card-body">
+            <p class="idea-title">${ideas[i].title}</p>
+            <p class="idea-body">${ideas[i].body}</p>
+        </section>
+        <section class="bottom-bar">
+        </section>
+    </article>`
+
+    }
+}
+
+function clearForm() {
+    titleInput.value = ''
+    bodyInput.value = ''
+    saveButton.classList.add('disabled')
+}
