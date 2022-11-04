@@ -29,10 +29,6 @@ var ideaCardGrid = document.querySelector('#idea-card-grid')
 var ideaCard = document.querySelector('#idea-card')
 var ideaTitle = document.querySelector('#idea-title')
 var ideaBody = document.querySelector('#idea-body')
-// buttons
-var starButton = document.querySelector('#star-button')
-// var deleteButton = document.querySelector('.delete-button')
-
 
 // Add Event Listeners
 showStarredIdeaButton.addEventListener('click', function() {
@@ -54,6 +50,7 @@ formInput.addEventListener('input', function() {
 
 ideaCardGrid.addEventListener('click', function(event) {
     deleteIdea(event)
+    starIdea(event)
     displayIdeas()
 })
 
@@ -84,7 +81,7 @@ function displayIdeas() {
         ideaCardGrid.innerHTML += `
         <article class="idea-card" id="${ideas[i].id}">
             <nav class="card-nav">
-                <button type="button" class="star-button" id="star-button"></button>
+                <button type="button" class="star-button" id="starButton"></button>
                 <button type="button" class="delete-button" id="deleteButton"></button>
             </nav>
             <section class="card-body">
@@ -109,6 +106,17 @@ function deleteIdea(event) {
         for (var i = 0; i < ideas.length; i++) {
             if (ideas[i].id === Number(targetId)){
                 ideas.splice(i,1)
+            }
+        }
+    }
+}
+
+function starIdea(event) {
+    var targetStarId = event.target.closest('article').id
+    if (event.target.id === 'starButton'){
+        for (var i = 0; i < ideas.length; i++) {
+            if (ideas[i].id === Number(targetStarId)){
+                ideas[i].updateIdea()
             }
         }
     }
