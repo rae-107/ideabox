@@ -29,7 +29,7 @@ var ideaCardGrid = document.querySelector('#idea-card-grid')
 
 // Add Event Listeners
 showIdeaButton.addEventListener('click', function () {
-    displayStarred()
+    changeIdeasButton()
 })
 
 saveButton.addEventListener('click', function () {
@@ -71,6 +71,7 @@ function saveIdea(title, body) {
 }
 
 function displayIdeas() {
+    showIdeaButton.innerText = 'Show Starred Ideas'
     ideaCardGrid.innerHTML = ''
     for (var i = 0; i < ideas.length; i++) {
         ideaCardGrid.innerHTML += `
@@ -90,7 +91,7 @@ function displayIdeas() {
 }
 
 function displayStarred() {
-    // showIdeaButton.innerText = ''
+    showIdeaButton.innerText = 'Show All Ideas'
     ideaCardGrid.innerHTML = ''
     for (var i = 0; i < ideas.length; i++) {
         if (ideas[i].star) {
@@ -108,6 +109,14 @@ function displayStarred() {
                 </section>
             </article>`
         }
+    }
+}
+
+function changeIdeasButton () {
+    if (showIdeaButton.innerText === 'Show Starred Ideas') {
+        displayStarred()
+    } else if (showIdeaButton.innerText === 'Show All Ideas') {
+        displayIdeas()
     }
 }
 
