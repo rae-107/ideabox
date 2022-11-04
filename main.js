@@ -18,7 +18,7 @@ var showIdeaButton = document.querySelector('#show-idea-button')
 var formInput = document.querySelector('#idea-form')
 var titleInput = document.querySelector('#title-input')
 var bodyInput = document.querySelector('#body-input')
-var searchInputValue = document.querySelector('#search-input')
+var searchInput = document.querySelector('#search-input')
 // buttons
 var searchButton = document.querySelector('#search-button')
 var saveButton = document.querySelector('#save-button')
@@ -40,8 +40,9 @@ formInput.addEventListener('input', function () {
     enableSaveButton()
 })
 
-// searchButton.addEventListener('click', function() {
-// })
+searchInput.addEventListener('input', function () {
+    filterIdeas()
+})
 
 ideaCardGrid.addEventListener('click', function (event) {
     deleteIdea(event)
@@ -70,10 +71,7 @@ function saveIdea(title, body) {
     }
 }
 
-function displayIdeas() {
-    showIdeaButton.innerText = 'Show Starred Ideas'
-    ideaCardGrid.innerHTML = ''
-    for (var i = 0; i < ideas.length; i++) {
+function ideaCard(i) {
         ideaCardGrid.innerHTML += `
         <article class="idea-card" id="${ideas[i].id}">
             <nav class="card-nav">
@@ -88,6 +86,14 @@ function displayIdeas() {
             </section>
         </article>`
     }
+// }
+
+function displayIdeas() {
+    showIdeaButton.innerText = 'Show Starred Ideas'
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        ideaCard(i)
+    }
 }
 
 function displayStarred() {
@@ -95,24 +101,12 @@ function displayStarred() {
     ideaCardGrid.innerHTML = ''
     for (var i = 0; i < ideas.length; i++) {
         if (ideas[i].star) {
-            ideaCardGrid.innerHTML += `
-            <article class="idea-card" id="${ideas[i].id}">
-                <nav class="card-nav">
-                    <img src="${star(i)}" class="star-button" id="starButton">
-                    <button type="button" class="delete-button" id="deleteButton"></button>
-                </nav>
-                <section class="card-body">
-                    <p class="idea-title" id="idea-title">${ideas[i].title}</p>
-                    <p class="idea-body" id="idea-body">${ideas[i].body}</p>
-                </section>
-                <section class="bottom-bar">
-                </section>
-            </article>`
+            ideaCard(i)
         }
     }
 }
 
-function changeIdeasButton () {
+function changeIdeasButton() {
     if (showIdeaButton.innerText === 'Show Starred Ideas') {
         displayStarred()
     } else if (showIdeaButton.innerText === 'Show All Ideas') {
@@ -153,4 +147,13 @@ function star(i) {
         return './assets/star-active.svg'
     }
     return './assets/star.svg'
+}
+
+function filterIdeas() {
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        if (ideas[i].title.includes(searchInput.value) || ideas[i].body.includes(searchInput.value)) {
+            ideaCard(i)
+        }
+    }
 }
