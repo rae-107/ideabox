@@ -31,15 +31,15 @@ var ideaTitle = document.querySelector('#idea-title')
 var ideaBody = document.querySelector('#idea-body')
 
 // Add Event Listeners
-showStarredIdeaButton.addEventListener('click', function() {
+showStarredIdeaButton.addEventListener('click', function () {
 })
 
-saveButton.addEventListener('click', function() {
+saveButton.addEventListener('click', function () {
     saveIdea()
 })
 
-formInput.addEventListener('input', function() {
-    toggleSaveButton()
+formInput.addEventListener('input', function () {
+    enableSaveButton()
 })
 
 // searchButton.addEventListener('click', function() {
@@ -48,7 +48,7 @@ formInput.addEventListener('input', function() {
 // starButton.addEventListener('click', function() {
 // })
 
-ideaCardGrid.addEventListener('click', function(event) {
+ideaCardGrid.addEventListener('click', function (event) {
     deleteIdea(event)
     starIdea(event)
     displayIdeas()
@@ -56,7 +56,7 @@ ideaCardGrid.addEventListener('click', function(event) {
 
 // Functions and Event Handlers
 
-function toggleSaveButton() {
+function enableSaveButton() {
     if (titleInput.value !== '' && bodyInput.value !== '') {
         saveButton.classList.remove('disabled')
     } else {
@@ -72,16 +72,16 @@ function saveIdea(title, body) {
         ideas.push(newIdea)
         displayIdeas()
         clearForm()
-    } 
+    }
 }
 
 function displayIdeas() {
     ideaCardGrid.innerHTML = ''
-    for(var i = 0; i < ideas.length; i++) {
+    for (var i = 0; i < ideas.length; i++) {
         ideaCardGrid.innerHTML += `
         <article class="idea-card" id="${ideas[i].id}">
             <nav class="card-nav">
-                <button type="button" class="star-button" id="starButton"></button>
+                <img src="${star(i)}" class="star-button" id="starButton">
                 <button type="button" class="delete-button" id="deleteButton"></button>
             </nav>
             <section class="card-body">
@@ -102,10 +102,10 @@ function clearForm() {
 
 function deleteIdea(event) {
     var targetId = event.target.closest('article').id
-    if (event.target.id === 'deleteButton'){
+    if (event.target.id === 'deleteButton') {
         for (var i = 0; i < ideas.length; i++) {
-            if (ideas[i].id === Number(targetId)){
-                ideas.splice(i,1)
+            if (ideas[i].id === Number(targetId)) {
+                ideas.splice(i, 1)
             }
         }
     }
@@ -113,15 +113,18 @@ function deleteIdea(event) {
 
 function starIdea(event) {
     var targetStarId = event.target.closest('article').id
-    if (event.target.id === 'starButton'){
+    if (event.target.id === 'starButton') {
         for (var i = 0; i < ideas.length; i++) {
-            if (ideas[i].id === Number(targetStarId)){
+            if (ideas[i].id === Number(targetStarId)) {
                 ideas[i].updateIdea()
-                console.log('hi')
-                event.target.classList.remove('star-button')
-                event.target.classList.add('starred-button')
-                console.log(event.target)
             }
         }
     }
+}
+
+function star(i) {
+    if (ideas[i].star) {
+        return './assets/star-active.svg'
+    }
+    return './assets/star.svg'
 }

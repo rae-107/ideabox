@@ -144,27 +144,8 @@ fieldset {
     height: 30px;
 }
 
-.starred-button {
-    background-image: url('./assets/star-active.svg');
-    background-color: #1f1f3d;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
-    width: 40px;
-    padding: 15px;
-    border: none;
-    cursor: pointer;
-}
-
 .star-button {
-    background-image: url('./assets/star.svg');
-    background-color: #1f1f3d;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
     width: 40px;
-    padding: 15px;
-    border: none;
     cursor: pointer;
 }
 
