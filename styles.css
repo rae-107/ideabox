@@ -2,6 +2,8 @@
 * {
     font-family: 'Open sans', sans-serif;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 body {
     display: flex;
@@ -19,7 +21,6 @@ body {
 button {
     color: #e9e9f3;
     background-color: #5356a4;
-
 }
 
 /* FORM */
@@ -144,14 +145,7 @@ fieldset {
 }
 
 .star-button {
-    background-image: url('./assets/star.svg');
-    background-color: #1f1f3d;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
     width: 40px;
-    padding: 15px;
-    border: none;
     cursor: pointer;
 }
 
