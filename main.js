@@ -9,29 +9,27 @@ var newIdea;
 
 // Main
 // inputs
+
 // buttons
-var showStarredIdeaButton = document.querySelector('#show-starred-button')
+var showIdeaButton = document.querySelector('#show-idea-button')
 
 // Form
 // inputs
 var formInput = document.querySelector('#idea-form')
 var titleInput = document.querySelector('#title-input')
 var bodyInput = document.querySelector('#body-input')
-var searchInputValue = document.querySelector('#search-input')
+var searchInput = document.querySelector('#search-input')
 // buttons
 var searchButton = document.querySelector('#search-button')
 var saveButton = document.querySelector('#save-button')
 
-
 // Cards
 // inputs
 var ideaCardGrid = document.querySelector('#idea-card-grid')
-var ideaCard = document.querySelector('#idea-card')
-var ideaTitle = document.querySelector('#idea-title')
-var ideaBody = document.querySelector('#idea-body')
 
 // Add Event Listeners
-showStarredIdeaButton.addEventListener('click', function () {
+showIdeaButton.addEventListener('click', function () {
+    changeIdeasButton()
 })
 
 saveButton.addEventListener('click', function () {
@@ -42,11 +40,9 @@ formInput.addEventListener('input', function () {
     enableSaveButton()
 })
 
-// searchButton.addEventListener('click', function() {
-// })
-
-// starButton.addEventListener('click', function() {
-// })
+searchInput.addEventListener('input', function () {
+    filterIdeas()
+})
 
 ideaCardGrid.addEventListener('click', function (event) {
     deleteIdea(event)
@@ -75,9 +71,7 @@ function saveIdea(title, body) {
     }
 }
 
-function displayIdeas() {
-    ideaCardGrid.innerHTML = ''
-    for (var i = 0; i < ideas.length; i++) {
+function ideaCard(i) {
         ideaCardGrid.innerHTML += `
         <article class="idea-card" id="${ideas[i].id}">
             <nav class="card-nav">
@@ -91,6 +85,32 @@ function displayIdeas() {
             <section class="bottom-bar">
             </section>
         </article>`
+    }
+// }
+
+function displayIdeas() {
+    showIdeaButton.innerText = 'Show Starred Ideas'
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        ideaCard(i)
+    }
+}
+
+function displayStarred() {
+    showIdeaButton.innerText = 'Show All Ideas'
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        if (ideas[i].star) {
+            ideaCard(i)
+        }
+    }
+}
+
+function changeIdeasButton() {
+    if (showIdeaButton.innerText === 'Show Starred Ideas') {
+        displayStarred()
+    } else if (showIdeaButton.innerText === 'Show All Ideas') {
+        displayIdeas()
     }
 }
 
@@ -127,4 +147,13 @@ function star(i) {
         return './assets/star-active.svg'
     }
     return './assets/star.svg'
+}
+
+function filterIdeas() {
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        if (ideas[i].title.includes(searchInput.value) || ideas[i].body.includes(searchInput.value)) {
+            ideaCard(i)
+        }
+    }
 }
