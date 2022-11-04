@@ -9,8 +9,9 @@ var newIdea;
 
 // Main
 // inputs
+
 // buttons
-var showStarredIdeaButton = document.querySelector('#show-starred-button')
+var showIdeaButton = document.querySelector('#show-idea-button')
 
 // Form
 // inputs
@@ -22,16 +23,13 @@ var searchInputValue = document.querySelector('#search-input')
 var searchButton = document.querySelector('#search-button')
 var saveButton = document.querySelector('#save-button')
 
-
 // Cards
 // inputs
 var ideaCardGrid = document.querySelector('#idea-card-grid')
-var ideaCard = document.querySelector('#idea-card')
-var ideaTitle = document.querySelector('#idea-title')
-var ideaBody = document.querySelector('#idea-body')
 
 // Add Event Listeners
-showStarredIdeaButton.addEventListener('click', function () {
+showIdeaButton.addEventListener('click', function () {
+    displayStarred()
 })
 
 saveButton.addEventListener('click', function () {
@@ -43,9 +41,6 @@ formInput.addEventListener('input', function () {
 })
 
 // searchButton.addEventListener('click', function() {
-// })
-
-// starButton.addEventListener('click', function() {
 // })
 
 ideaCardGrid.addEventListener('click', function (event) {
@@ -91,6 +86,28 @@ function displayIdeas() {
             <section class="bottom-bar">
             </section>
         </article>`
+    }
+}
+
+function displayStarred() {
+    // showIdeaButton.innerText = ''
+    ideaCardGrid.innerHTML = ''
+    for (var i = 0; i < ideas.length; i++) {
+        if (ideas[i].star) {
+            ideaCardGrid.innerHTML += `
+            <article class="idea-card" id="${ideas[i].id}">
+                <nav class="card-nav">
+                    <img src="${star(i)}" class="star-button" id="starButton">
+                    <button type="button" class="delete-button" id="deleteButton"></button>
+                </nav>
+                <section class="card-body">
+                    <p class="idea-title" id="idea-title">${ideas[i].title}</p>
+                    <p class="idea-body" id="idea-body">${ideas[i].body}</p>
+                </section>
+                <section class="bottom-bar">
+                </section>
+            </article>`
+        }
     }
 }
 
