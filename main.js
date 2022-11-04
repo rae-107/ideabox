@@ -25,13 +25,13 @@ var saveButton = document.querySelector('#save-button')
 
 // Cards
 // inputs
-var ideaCardGrid = document.querySelector('.idea-card-grid')
-var ideaCard = document.querySelector('.idea-card')
-var ideaTitle = document.querySelector('.idea-title')
-var ideaBody = document.querySelector('.idea-body')
+var ideaCardGrid = document.querySelector('#idea-card-grid')
+var ideaCard = document.querySelector('#idea-card')
+var ideaTitle = document.querySelector('#idea-title')
+var ideaBody = document.querySelector('#idea-body')
 // buttons
 var starButton = document.querySelector('#star-button')
-var deleteButton = document.querySelector('#delete-button')
+// var deleteButton = document.querySelector('.delete-button')
 
 
 // Add Event Listeners
@@ -46,13 +46,15 @@ formInput.addEventListener('input', function() {
     toggleSaveButton()
 })
 
-searchButton.addEventListener('click', function() {
-})
+// searchButton.addEventListener('click', function() {
+// })
 
-starButton.addEventListener('click', function() {
-})
+// starButton.addEventListener('click', function() {
+// })
 
-deleteButton.addEventListener('click', function() {
+ideaCardGrid.addEventListener('click', function(event) {
+    deleteIdea(event)
+    displayIdeas()
 })
 
 // Functions and Event Handlers
@@ -74,25 +76,24 @@ function saveIdea(title, body) {
         displayIdeas()
         clearForm()
     } 
-
 }
 
 function displayIdeas() {
     ideaCardGrid.innerHTML = ''
     for(var i = 0; i < ideas.length; i++) {
-        ideaCardGrid.innerHTML += `<article class="idea-card">
-        <div class="card-nav">
-            <button type="button" name="star" class="star-button" id="star-button">
-            <button type="button" name="delete" class="delete-button" id="delete-button">
-            </div>
-        <section class="card-body">
-            <p class="idea-title">${ideas[i].title}</p>
-            <p class="idea-body">${ideas[i].body}</p>
-        </section>
-        <section class="bottom-bar">
-        </section>
-    </article>`
-
+        ideaCardGrid.innerHTML += `
+        <article class="idea-card" id="${ideas[i].id}">
+            <nav class="card-nav">
+                <button type="button" class="star-button" id="star-button"></button>
+                <button type="button" class="delete-button" id="deleteButton"></button>
+            </nav>
+            <section class="card-body">
+                <p class="idea-title" id="idea-title">${ideas[i].title}</p>
+                <p class="idea-body" id="idea-body">${ideas[i].body}</p>
+            </section>
+            <section class="bottom-bar">
+            </section>
+        </article>`
     }
 }
 
@@ -100,4 +101,15 @@ function clearForm() {
     titleInput.value = ''
     bodyInput.value = ''
     saveButton.classList.add('disabled')
+}
+
+function deleteIdea(event) {
+    var targetId = event.target.closest('article').id
+    if (event.target.id === 'deleteButton'){
+        for (var i = 0; i < ideas.length; i++) {
+            if (ideas[i].id === Number(targetId)){
+                ideas.splice(i,1)
+            }
+        }
+    }
 }

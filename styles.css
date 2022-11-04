@@ -2,6 +2,8 @@
 * {
     font-family: 'Open sans', sans-serif;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 body {
     display: flex;
@@ -19,7 +21,6 @@ body {
 button {
     color: #e9e9f3;
     background-color: #5356a4;
-
 }
 
 /* FORM */
