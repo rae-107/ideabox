@@ -117,6 +117,10 @@ function starIdea(event) {
         for (var i = 0; i < ideas.length; i++) {
             if (ideas[i].id === Number(targetStarId)){
                 ideas[i].updateIdea()
+                console.log('hi')
+                event.target.classList.remove('star-button')
+                event.target.classList.add('starred-button')
+                console.log(event.target)
             }
         }
     }
