@@ -1,10 +1,10 @@
-/* GLOBAL */
 * {
     font-family: 'Open sans', sans-serif;
     font-weight: bold;
     margin: 0;
     padding: 0;
 }
+
 body {
     display: flex;
     flex-direction: row;
@@ -22,6 +22,7 @@ body {
 h1 {
     padding: 10px;
 }
+
 h4 {
     padding: 10px;
     color: #bfbfdd;
@@ -36,7 +37,7 @@ h4 {
 
 .show-idea-button {
     width: 90%;
-    border: none;
+    border: 0;
     color: #e9e9f3;
     background-color: #5356a4;
     border-radius: 1px;
@@ -49,6 +50,7 @@ h4 {
 .form-and-grid {
     width: 100%;
 }
+
 form {
     height: 40vh;
     background-color: #a9aad2;
@@ -118,7 +120,7 @@ fieldset {
 
 .search-input {
     width: 100%;
-    border: none;
+    border: 0;
 }
 
 /* CARD GRID */
@@ -129,8 +131,8 @@ fieldset {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
-
 }
+
 .idea-card {
     width: 185px;
     height: 250px;

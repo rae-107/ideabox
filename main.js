@@ -1,33 +1,15 @@
-//main.js file that contains all DOM related JavaScript.
-
-//Next step would be to create instances of our Idea Class
-
-// Variables
 var ideas = []
 var newIdea;
-// JQuery Selectors
 
-// Main
-// inputs
-
-// buttons
 var showIdeaButton = document.querySelector('#show-idea-button')
-
-// Form
-// inputs
 var formInput = document.querySelector('#idea-form')
 var titleInput = document.querySelector('#title-input')
 var bodyInput = document.querySelector('#body-input')
 var searchInput = document.querySelector('#search-input')
-// buttons
 var searchButton = document.querySelector('#search-button')
 var saveButton = document.querySelector('#save-button')
-
-// Cards
-// inputs
 var ideaCardGrid = document.querySelector('#idea-card-grid')
 
-// Add Event Listeners
 showIdeaButton.addEventListener('click', function () {
     changeIdeasButton()
 })
@@ -49,8 +31,6 @@ ideaCardGrid.addEventListener('click', function (event) {
     starIdea(event)
     displayIdeas()
 })
-
-// Functions and Event Handlers
 
 function enableSaveButton() {
     if (titleInput.value !== '' && bodyInput.value !== '') {
@@ -85,7 +65,7 @@ function ideaCard(i) {
             <section class="bottom-bar">
             </section>
         </article>`
-    }
+}
 
 function displayIdeas() {
     showIdeaButton.innerText = 'Show Starred Ideas'
