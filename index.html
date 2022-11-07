@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Idea Box</title>
 </head>
 <body>
     <section class="side-bar">
         <h1>IdeaBox</h1>
+        <div class="border-line"></div>
         <arcticle class="starred-ideas">
-            <button type="button" id="show-idea-button">Show Starred Ideas</button>
+            <h4>Filter Starred Ideas</h4>
+            <button type="button" class="show-idea-button" id="show-idea-button">Show Starred Ideas</button>
         </arcticle>
+        <div class="border-line"></div>
     </section>
     <main class="form-and-grid">
         <form class="idea-form" id="idea-form">
@@ -27,7 +30,7 @@
             </fieldset>
             <button type="button" class="save-button disabled" id="save-button">Save</button>
             <fieldset class="search-ideas">
-                <button type="button" id="search-button"></button>
+                <img src="./assets/search.svg" alt="Search image" class="search-image" id="search-image">
                 <input type="text" placeholder="Search ideas" class="search-input" id="search-input">
             </fieldset>
         </form>
