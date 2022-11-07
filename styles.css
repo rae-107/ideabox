@@ -10,20 +10,42 @@ body {
     flex-direction: row;
 }
 
-/* MAIN */
+/* SIDE-BAR */
 .side-bar {
+    font-size: 12px;
     width: 33%;
-    height: 100vh;
+    height: 102.5vh;
     background-color: #1f1f3d;
     color: #e9e9f3;
-    /* padding: 10px; */
-}
-button {
-    color: #e9e9f3;
-    background-color: #5356a4;
 }
 
-/* FORM */
+h1 {
+    padding: 10px;
+}
+h4 {
+    padding: 10px;
+    color: #bfbfdd;
+}
+
+.border-line {
+    border: solid #353567;
+    border-width: 2px 0 0 0;
+    height: 3px;
+    width: 133%;
+}
+
+.show-idea-button {
+    width: 90%;
+    border: none;
+    color: #e9e9f3;
+    background-color: #5356a4;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 10px 10px 20px;
+    padding: 5px 15px;
+}
+
+/* MAIN */
 .form-and-grid {
     width: 100%;
 }
@@ -44,76 +66,59 @@ fieldset {
     border: 0;
 }
 
-.title-container {
-    font-size: 12px;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    /* change font weight */
-}
-
-.title-input {
-    height: 35px;
-    border: 2px solid #5356a4;
-    border-radius: 3px;
-}
-
+.title-container,
 .body-container {
     font-size: 12px;
     width: 65%;
     display: flex;
     flex-direction: column;
     margin: 0px;
-    /* change font weight */
+}
+
+.title-input, 
+.body-input, 
+.search-input,
+.search-ideas {
+    height: 35px;
+    border: 2px solid #5356a4;
+    border-radius: 3px;
+    font-weight: 300;
 }
 
 .body-input {
     height: 75px;
-    border: 1.75px solid #5356a4;
-    border-radius: 3px;
 }
 
-.save-button {
+.save-button,
+.disabled  {
     height: 35px;
     width: 65%;
     background-color:#1f1f3d;
     border: 2px #5356a4;
     border-radius: 3px;
-    cursor: pointer;
 }
 
 .disabled {
     color: #1f1f3d;
     background-color: #EAEAF4;    
-    height: 35px;
-    width: 65%;
-    border: 2px #5356a4;
-    border-radius: 3px;
     cursor: default;
 }
 
-.search-ideas > button {
+.search-image {
     background-color: #1f1f3d;
-    background-image: url('./assets/search.svg');
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-    width: 40px;
-    padding: 15px;
+    width: 25px;
+    height: 22px;
+    padding: 7px;
 }
 
 .search-ideas {
-    height: 35px;
     width: 65%;
     display: flex;
 }
 
 .search-input {
     width: 100%;
-    font-weight: 300;
-    border: 2px #5356a4;
-    border-radius: 3px;
+    border: none;
 }
 
 /* CARD GRID */
@@ -144,20 +149,9 @@ fieldset {
     height: 30px;
 }
 
-.star-button {
+.star-image, 
+.delete-image {
     width: 40px;
-    cursor: pointer;
-}
-
-.delete-button {
-    background-image: url('./assets/delete.svg');
-    background-color: #1f1f3d;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
-    width: 40px;
-    padding: 15px;
-    border: none;
     cursor: pointer;
 }
 
@@ -172,26 +166,6 @@ fieldset {
 }
 
 .bottom-bar {
-    color: #e9e9f3;
     background-color: #5356a4;
-    display: flex;
-    align-items: flex-start;
-    font-size: 14px;
     height: 30px;
-    /* width: 100%; */
-    /* adjust sizing */
 }
-
-/* #comment-button {
-    background-image: url('./assets/comment.svg');
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
-    width: 40px;
-    padding: 15px;
-    border: none;
-    cursor: pointer;
-} */
-
-
-

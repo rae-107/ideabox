@@ -75,8 +75,8 @@ function ideaCard(i) {
         ideaCardGrid.innerHTML += `
         <article class="idea-card" id="${ideas[i].id}">
             <nav class="card-nav">
-                <img src="${star(i)}" class="star-button" id="starButton">
-                <button type="button" class="delete-button" id="deleteButton"></button>
+                <img src="${star(i)}" class="star-image" id="star-image">
+                <img src="./assets/delete.svg" class="delete-image" id="delete-image">
             </nav>
             <section class="card-body">
                 <p class="idea-title" id="idea-title">${ideas[i].title}</p>
@@ -86,7 +86,6 @@ function ideaCard(i) {
             </section>
         </article>`
     }
-// }
 
 function displayIdeas() {
     showIdeaButton.innerText = 'Show Starred Ideas'
@@ -122,7 +121,7 @@ function clearForm() {
 
 function deleteIdea(event) {
     var targetId = event.target.closest('article').id
-    if (event.target.id === 'deleteButton') {
+    if (event.target.id === 'delete-image') {
         for (var i = 0; i < ideas.length; i++) {
             if (ideas[i].id === Number(targetId)) {
                 ideas.splice(i, 1)
@@ -133,7 +132,7 @@ function deleteIdea(event) {
 
 function starIdea(event) {
     var targetStarId = event.target.closest('article').id
-    if (event.target.id === 'starButton') {
+    if (event.target.id === 'star-image') {
         for (var i = 0; i < ideas.length; i++) {
             if (ideas[i].id === Number(targetStarId)) {
                 ideas[i].updateIdea()
