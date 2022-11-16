@@ -4,13 +4,14 @@ We built a webpage that allows users to input ideas with a title and body into a
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
-- First, clone the SSH code from this [link](https://github.com/FayeRosenshein/ideabox) to your local computer
+- First, clone the SSH code from this [link](https://github.com/rae-107/ideabox) to your local computer
 - Second, open in your text editor 
 - Third, read the README.md 
 - Fourth, in the terminal, run the coommand open index.html for initial deployment and interaction with app
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+[Link to webpage](https://rae-107.github.io/ideabox/)
 <img width="1440" src="assets/ideabox.png" alt="screenshot">
 
 
