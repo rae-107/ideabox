@@ -11,7 +11,8 @@ We built a webpage that allows users to input ideas with a title and body into a
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-[Link to webpage](https://rae-107.github.io/ideabox/)
+[Live Demo](https://rae-107.github.io/ideabox/)
+
 <img width="1440" src="assets/ideabox.png" alt="screenshot">
 
 
