@@ -106,6 +106,10 @@ fieldset {
     cursor: default;
 }
 
+.save-button {
+  color: white;
+}
+
 .search-image {
     background-color: #1f1f3d;
     width: 25px;
